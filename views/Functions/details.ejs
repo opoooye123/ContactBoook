@@ -1,25 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Details</title>
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f2f5f9;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* Card Container */
+        .card {
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+            max-width: 400px;
+            width: 100%;
+        }
+
+    /* Header & Title */
+    h2 {
+      text-align: center;
+      color: #333;
+      margin-bottom: 24px;
+    }
+
+    /* Contact Details */
+    .details p {
+      margin: 12px 0;
+      color: #555;
+      font-size: 16px;
+    }
+    
+    .details p span {
+      font-weight: bold;
+      color: #333;
+    }
+
+    /* Edit Link as a Styled Button */
+    .btn-edit {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007bff;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      text-align: center;
+      transition: background-color 0.3s ease;
+    }
+    
+    .btn-edit:hover {
+      background-color: #0056b3;
+    }
+</style>
 </head>
 
 <body>
-    <h2>Informations</h2>
-
-    <div>
-        <p>ContactId: <%= contact.id %>
-        </p>
-        <p>Name: <%= contact.names %>
-        </p>
-        <p>Contact: <%= contact.contact %>
-        </p>
-
-        <a href="/contacts/">Edit</a>
+    <div class="card">
+        <h2>Contact Informations</h2>
+        <div class="details">
+            <p><span>ContactId:</span>
+                <%= contact.id %>
+            </p>
+            <p><span>Name:</span>
+                <%= contact.names %>
+            </p>
+            <p><span>Contact:</span>
+                <%= contact.contact %>
+            </p>
+            <p><span>Country:</span>
+                <%= contact.country %>
+            </p>
+        </div>
+        <a class="btn-edit" href="/contacts/<%= contact.id %>/edit">Edit</a>
     </div>
 </body>
-
 </html>

@@ -1,27 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Edit Contact</title>
+    <style>
+        /* Your existing styles or modify as needed */
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background-color: #f4f6f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+    
+        .form-container {
+            background-color: #ffffff;
+            padding: 30px 40px;
+            border-radius: 12px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+    
+        h2 {
+            text-align: center;
+            margin-bottom: 24px;
+        }
+    
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+    
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+    
+        button {
+            width: 100%;
+            padding: 12px;
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+    
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
 </head>
-
 <body>
-    <h3>Edit Contact</h3>
-
-    <form action="/contacts" method="post">
-        <label for="name">Name</label>
-        <input type="text" name="names" id="name" required>
-        <br>
-        <label for="phone">Phone</label>
-        <input type="text" name="contact" id="phone" required>
-        <br>
-        <label for="country">Country</label>
-        <input type="text" name="country" id="country">
-        <br>
-        <button>Save</button>
-    </form>
+    <div class="form-container">
+        <h2>Edit Contact</h2>
+        <form action="/contacts/<%= contact.id %>?_method=PATCH" method="POST">
+            <label for="name">Name</label>
+            <input type="text" name="names" id="name" value="<%= contact.names %>" required>
+            
+            <label for="phone">Phone</label>
+            <input type="text" name="contact" id="phone" value="<%= contact.contact %>" required>
+            
+            <label for="country">Country</label>
+            <input type="text" name="country" id="country" value="<%= contact.country %>">
+            
+            <button type="submit">Save Changes</button>
+            </form>
+    </div>
 </body>
-
 </html>
